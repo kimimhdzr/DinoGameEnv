@@ -1,0 +1,8 @@
+.gameCanvas{
+    width: 80%;
+    height: 60%;
+    justify-content: center;  /* Centers the content horizontally within the container */
+    align-items: center;      /* Centers the content vertically within the container */
+    display: flex;            /* Applies flexbox layout to the container */
+    margin: 0 auto;           /* Centers the container horizontally within its parent */
+}
