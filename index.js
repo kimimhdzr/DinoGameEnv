@@ -12,15 +12,40 @@ import Ground from './js/ground.js';
 const dino = new Dino(ctx);
 const ground = new Ground(ctx);
 
-// Main render loop
+// Set up the Game Variable
+let gameStarted = false;
+let gameOver = false;
+let score = 0;
+
+addEventListener('keydown', function handler(event) {
+    if(event.key === ' ') {
+        gameStarted = true;
+        removeEventListener('keydown', handler); // Remove the event listener
+        // so this listener is once only before the game start
+    }
+});
+
+function updateScore() {
+    document.getElementById('score').innerHTML = Math.floor(score);
+}
+
+// Game Start render loop
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear the canvas
 
     ground.render();  // Render the ground
-    dino.update();    // Update the dino
     dino.render();    // Render the dino
 
-    requestAnimationFrame(render);  // Keep the loop running
+    if (gameStarted && !gameOver) {
+        ground.update();  // Update the ground
+        dino.update();    // Update the dino
+        score += 0.1;     // Increment the score more slowly
+        updateScore();
+    }
+
+    if (!gameOver) {
+        requestAnimationFrame(render);  // Keep the loop running
+    }
 }
 
-render();  // Start the render loop
+render();  // Start the game
