@@ -10,7 +10,9 @@ export default class Ground {
         this.speed = 5;
     }
 
-    update() {
+    update(speed) {
+        this.speed = speed;
+
         // Move the ground to the left for scrolling effect
         this.x -= this.speed;
 
