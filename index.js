@@ -16,6 +16,7 @@ const ground = new Ground(ctx);
 let gameStarted = false;
 let gameOver = false;
 let score = 0;
+let speed = 5;
 
 addEventListener('keydown', function handler(event) {
     if(event.key === ' ') {
@@ -37,10 +38,11 @@ function render() {
     dino.render();    // Render the dino
 
     if (gameStarted && !gameOver) {
-        ground.update();  // Update the ground
+        ground.update(speed);  // Update the ground
         dino.update();    // Update the dino
         score += 0.1;     // Increment the score more slowly
-        updateScore();
+        updateScore();    // Update the score
+        speed += 0.001;  // Increment the speed slowly
     }
 
     if (!gameOver) {
