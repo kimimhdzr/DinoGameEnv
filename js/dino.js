@@ -33,6 +33,8 @@ export default class Dino {
     }
 
     update() {
+        this.frame++;
+
         // Handle jump mechanics
         if (this.isJumping) {
             this.y += this.jumpVelocity;
@@ -48,8 +50,6 @@ export default class Dino {
     }
 
     render() {
-        this.frame++;
-
         // Switch between sprite1 and sprite2 for running animation
         const sprite = this.frame % 20 < 10 ? this.sprite1 : this.sprite2;
         this.ctx.drawImage(sprite, this.x, this.y, this.width, this.height);

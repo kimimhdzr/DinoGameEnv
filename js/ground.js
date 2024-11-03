@@ -10,11 +10,7 @@ export default class Ground {
         this.speed = 5;
     }
 
-    render() {
-        // Draw the ground image twice to create a continuous scrolling effect
-        this.ctx.drawImage(this.image, this.x, this.y, this.width, this.image.height);
-        this.ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.image.height);
-
+    update() {
         // Move the ground to the left for scrolling effect
         this.x -= this.speed;
 
@@ -22,5 +18,11 @@ export default class Ground {
         if (this.x <= -this.width) {
             this.x = 0;
         }
+    }
+
+    render() {
+        // Draw the ground image twice to create a continuous scrolling effect
+        this.ctx.drawImage(this.image, this.x, this.y, this.width, this.image.height);
+        this.ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.image.height);
     }
 }
