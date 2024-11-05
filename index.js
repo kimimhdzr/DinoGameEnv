@@ -42,7 +42,7 @@ function render() {
 
     if (gameStarted && !gameOver) {
         if (Math.floor(score) % 20 === 0 && Math.floor(score) !== lastObstacleScore) {
-            game.spawnObstacle(speed);  // Spawn an obstacle every 20 whole score points
+            game.spawnObstacle(speed, score);  // Spawn an obstacle every 20 whole score points
             lastObstacleScore = Math.floor(score);
             console.log('Obstacle Spawned');
         }
