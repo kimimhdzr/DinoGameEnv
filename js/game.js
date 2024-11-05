@@ -1,4 +1,5 @@
 import Cactus from './cactus.js';
+import Bird from './bird.js';
 
 class Game {
     constructor(ctx) {
@@ -7,11 +8,17 @@ class Game {
         this.canvas = ctx.canvas;
     }
     
-    spawnObstacle(speed) {
+    spawnObstacle(speed, score) {
         const x = this.canvas.width;
         const y = this.canvas.height-95;
-        const cactus = new Cactus(this.ctx, x, y, speed);
-        this.obstacles.push(cactus);
+
+        if (score >= 200 && Math.random() < 0.5) {
+            const bird = new Bird(this.ctx, x, y, speed);
+            this.obstacles.push(bird);
+        } else {
+            const cactus = new Cactus(this.ctx, x, y, speed);
+            this.obstacles.push(cactus);
+        }
     }
     
     updateObstacles() {
