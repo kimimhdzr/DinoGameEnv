@@ -6,6 +6,7 @@ class Game {
         this.obstacles = [];
         this.ctx = ctx;
         this.canvas = ctx.canvas;
+        this.gameOver = false;
     }
     
     spawnObstacle(speed, score) {
@@ -32,8 +33,29 @@ class Game {
         }
     }
     
+    checkCollision(dino) {
+        for (const obstacle of this.obstacles) {
+            // Simple rectangle collision detection with 10px buffer for more forgiving collisions
+            if (
+                dino.x + 10 < obstacle.x + obstacle.width - 10 &&
+                dino.x + dino.width - 10 > obstacle.x + 10 &&
+                dino.y + 10 < obstacle.y + obstacle.height - 10 &&
+                dino.y + dino.height - 10 > obstacle.y + 10
+            ) {
+                this.gameOver = true;
+                return true;
+            }
+        }
+        return false;
+    }
+    
     renderObstacles() {
         this.obstacles.forEach(obstacle => obstacle.render());
+    }
+
+    reset() {
+        this.obstacles = [];
+        this.gameOver = false;
     }
 }
 

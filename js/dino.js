@@ -59,4 +59,11 @@ export default class Dino {
             this.frame = 0;
         }
     }
+
+    reset() {
+        this.y = 355;
+        this.isJumping = false;
+        this.jumpVelocity = 0;
+        this.frame = 0;
+    }
 }
