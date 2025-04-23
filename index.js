@@ -30,12 +30,14 @@ if (localStorage.getItem('highScore')) {
 
 // Event listener for game start and restart
 addEventListener('keydown', function(event) {
-    if (event.key === ' ') {
+    if (event.key === ' ' || event.key === 'ArrowUp' || event.key === 'w') {
         if (!gameStarted || game.gameOver) {
             resetGame();
         } else {
             dino.jump();  // Only jump if game is running
         }
+    } else if (event.key === 'ArrowDown' || event.key === 's') {
+        dino.crouch();
     }
 });
 
