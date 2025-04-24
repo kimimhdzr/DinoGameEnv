@@ -115,7 +115,7 @@ function render() {
                 dino.update();
                 score += 0.1;
                 updateScore();
-                speed += 0.0001;
+                speed += 0.001;
             }
         } else {
             game.renderObstacles();  // Keep rendering obstacles when game is over
