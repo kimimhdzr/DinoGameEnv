@@ -88,7 +88,7 @@ class Game {
     // New method to adjust difficulty based on score
     adjustDifficulty(score) {
         // Increase spawn chance and decrease minimum spawn interval as score increases
-        this.spawnChance = Math.min(0.7, 0.5 + score/1000); // Max 70% chance for double obstacles
+        this.spawnChance = Math.min(0.85, 0.5 + score/1000); // Max 85% chance for double obstacles
         this.minSpawnInterval = Math.max(500, 1000 - score); // Minimum 500ms between spawns
     }
 }

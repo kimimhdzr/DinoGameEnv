@@ -263,3 +263,72 @@ main {
   font-weight: bold;
   color: #555;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #0a79df;
+  border-radius: 8px;
+  background-color: #0a79df;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.modal-buttons button:hover {
+  background: #0a79df;
+  color: white;
+  transform: scale(1.05);
+}
+
+#cancelNameBtn {
+  background-color: white;
+  color: #df0a0a;
+  border: 1px solid #df0a0a;
+  margin-left: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
