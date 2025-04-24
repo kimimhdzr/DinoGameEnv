@@ -30,12 +30,13 @@ if (localStorage.getItem('highScore')) {
 
 // Event listener for game start and restart
 addEventListener('keydown', function(event) {
-    if (event.key === ' ') {
-        if (!gameStarted || game.gameOver) {
-            resetGame();
-        } else {
-            dino.jump();  // Only jump if game is running
-        }
+    // if game hasnt started or is over, start or restart the game
+    if ((event.key === ' ' || event.key === 'ArrowUp' || event.key === 'w') && (!gameStarted || game.gameOver)) {
+        resetGame();
+    }
+    // else, let dino handle the key event
+    else {
+        dino.onKeyDown(event);
     }
 });
 
@@ -114,7 +115,7 @@ function render() {
                 dino.update();
                 score += 0.1;
                 updateScore();
-                speed += 0.0001;
+                speed += 0.001;
             }
         } else {
             game.renderObstacles();  // Keep rendering obstacles when game is over
