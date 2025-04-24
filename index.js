@@ -54,6 +54,7 @@ if (localStorage.getItem("highScore")) {
 }
 
 // Event listener for game start and restart
+
 addEventListener("keydown", function (event) {
   if (event.key === " " || event.key === "ArrowUp") {
     if (!gameStarted || game.gameOver) {
@@ -148,6 +149,7 @@ function render() {
 
   ground.render();
   dino.render();
+
 
   if (!gameStarted) {
     // game not started

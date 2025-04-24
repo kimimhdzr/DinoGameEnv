@@ -1,5 +1,6 @@
 // js/dino.js
 export default class Dino {
+
   constructor(ctx) {
     this.ctx = ctx;
     this.sprite1 = new Image();
@@ -13,6 +14,7 @@ export default class Dino {
 
     this.duckSprite2 = new Image();
     this.duckSprite2.src = "assets/dinoduck2.png";
+
 
     this.x = 50;
     this.y = 355; // Ground level
@@ -41,6 +43,7 @@ export default class Dino {
     }
   }
 
+
   onKeyDown(event) {
     if (event.key === " ") {
       this.jump();
@@ -55,12 +58,15 @@ export default class Dino {
       this.y += this.jumpVelocity;
       this.jumpVelocity += this.gravity; // Gravity brings the dino back down
 
+
       // Stop the jump when the dino lands
       if (this.y >= 355) {
         // Ground level
         this.y = 355;
         this.isJumping = false;
+        this.isCrouching = false;
         this.jumpVelocity = 0;
+
       }
     }
   }
