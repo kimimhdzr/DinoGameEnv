@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Dino Game Environment</title>
-		<link rel="stylesheet" href="index.css" />
-	</head>
-	<body>
-		<script src="index.js" type="module" defer></script>
-		<div class="scoreContainer">
-			<p>Score: <span id="score">0</span></p>
-			<p>High Score: <span id="highScore">0</span></p>
-		</div>
-		<canvas class="gameCanvas" id="gameCanvas" width="800" height="500"></canvas>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dino Game Environment</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+      <div id="milestonePopup" class="popup"></div>
+      <div>
+        <div class="scoreContainer">
+          <p>🏁 Score: <span id="score">0</span></p>
+          <p>🏆 Highest Score: <span id="highScore">0</span></p>
+          <p>⚡ Speed: <span id="speedDisplay">0</span></p>
+        </div>
+        <div id="nameModal" class="modal">
+          <div class="modal-content">
+            <h2>🎉Congratss</h2>
+            <p>Enter your name to save your score:</p>
+            <input type="text" id="playerNameInput" placeholder="Your name" />
+            <div class="modal-buttons">
+              <button id="saveNameBtn">Save</button>
+              <button id="cancelNameBtn">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <canvas
+          class="gameCanvas"
+          id="gameCanvas"
+          width="800"
+          height="500"
+        ></canvas>
+        <div class="controls">
+          <button id="jumpBtn">⬆️ Jump</button>
+          <button id="crouchBtn">⬇️ Crouch</button>
+        </div>
+      </div>
+      <div class="historyContainer">
+        <h3>Previous Records</h3>
+        <ul id="scoreHistoryList"></ul>
+      </div>
+    </main>
+    <script src="index.js" type="module" defer></script>
+  </body>
 </html>
