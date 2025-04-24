@@ -7,7 +7,7 @@ class Bird extends Obstacle {
             width: 50,
             height: 50
         }
-        const y_displaced = y - bird.height - 30;
+        const y_displaced = y - bird.height - 20;
         super(ctx, x, y_displaced, bird.width, bird.height, speed, bird.src);
         this.sprite1 = new Image();
         this.sprite1.src = bird.src;
